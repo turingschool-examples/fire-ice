@@ -12,13 +12,14 @@ const CardContainer = (props) => {
     )
   }
   const cards = props.houses.map(house => {
+    console.log(house)
     return (
-      <Card {...props.houses} />
+      <Card {...house}/>
     )
   })
   return (
     <div>
-
+      {cards}
     </div>
   )
 }
