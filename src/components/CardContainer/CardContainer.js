@@ -12,7 +12,6 @@ const CardContainer = (props) => {
     )
   }
   const cards = props.houses.map(house => {
-    console.log(house)
     return (
       <Card {...house}/>
     )

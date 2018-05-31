@@ -11,7 +11,6 @@ const Card = (props) => {
       <h5>{coatOfArms}</h5>
       <h6>{ancestralWeapons}</h6>
       <h6>{words}</h6>
-      <div>sup</div>
     </div>
   )
 }
