@@ -6,6 +6,13 @@ import { connect } from 'react-redux';
 import { fakeAction } from '../../actions';
 class App extends Component {
 
+  fetchData = () => {
+    const url = 'http://localhost:3001/api/v1/houses';
+    fetch(url)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
   render() {
     return (
       <div className='App'>
@@ -13,8 +20,8 @@ class App extends Component {
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to Westeros</h2>
           <button onClick={() => {
+            this.fetchData()
             this.props.fakeAction();
-            alert(this.props.fake);
           }}> FAKE ACTION</button>
         </div>
         <div className='Display-info'>
