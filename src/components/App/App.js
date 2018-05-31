@@ -14,6 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     apiCalls.fetchData(this.props.populateHouses)
+    console.log('wow')
   }
 
   render() {
