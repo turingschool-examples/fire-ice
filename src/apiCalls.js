@@ -5,10 +5,14 @@ export const fetchData = () => {
   }
   const houses = fetch(url, method)
     .then(response => response.json())
-    .then(data => data)
+    .then(data => {
+      console.log(data)
+      return data;
+    })
     .catch(error => console.log(error))
-  console.log(houses)
-  return houses;
+  const wow = houses.resolve();
+  console.log(wow, 'woooooo')
+  return houses
 }
 
 export const fetchHouses = async () => {
