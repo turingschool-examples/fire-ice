@@ -8,6 +8,7 @@ import {
   populateHouses
 } from '../../actions';
 import * as apiCalls from '../../apiCalls'
+import CardContainer from '../CardContainer/CardContainer'
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
           }}> FAKE ACTION</button>
         </div>
         <div className='Display-info'>
+          <CardContainer />
         </div>
       </div>
     );
