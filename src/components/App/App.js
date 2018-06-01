@@ -3,8 +3,19 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { fakeAction } from '../../actions';
+import { 
+  fakeAction, 
+  populateHouses
+} from '../../actions';
+import * as apiCalls from '../../apiCalls'
+import CardContainer from '../CardContainer/CardContainer'
+
 class App extends Component {
+
+  componentDidMount() {
+    apiCalls.fetchData(this.props.populateHouses)
+    console.log('wow')
+  }
 
   render() {
     return (
@@ -18,6 +29,7 @@ class App extends Component {
           }}> FAKE ACTION</button>
         </div>
         <div className='Display-info'>
+          <CardContainer />
         </div>
       </div>
     );
@@ -30,7 +42,10 @@ App.propTypes = {
 };
 
 const mapStateToProps = ({ fake }) => ({ fake });
-const mapDispatchToProps = dispatch => ({ fakeAction:
-  () => dispatch(fakeAction())
+
+const mapDispatchToProps = dispatch => ({ 
+  fakeAction: () => dispatch(fakeAction()),
+  populateHouses: (houses) => dispatch(populateHouses(houses))
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
