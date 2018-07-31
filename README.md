@@ -6,6 +6,11 @@
 * `npm start`
 * Pull down the api: https://github.com/turingschool-examples/ice_fire_api
 
+Both repositories should be cloned down to your machine, and should sit next to
+each other. You'll need to create a repo on github to push your frontend
+repository to, and then you'll need to change the remote of the frontend app to
+match the repo on github.
+
 ### What you will be building:
 
 View a recording of it here -> http://recordit.co/X5H0FRbNXO/gif/notify
@@ -28,5 +33,7 @@ Nice work! You basically have a full website. This might be a good time to start
 
 If you've looked at the house objects coming in, you might have noticed the `swornMembers` array. This is an array of URL endpoints to hit. You'll need to make a `GET` request to `http://localhost:3001/api/v1/character/:id` to retrieve the desired sworn member (The `/character/:id` endpoint will grab that data for you and respond with the house sworn house member). You will also need to send the id of the sworn member in place of :id.
 
-This data should not be fetched until the user clicks on the card.
-You can solve this any way you'd like. If you decided to use router you might want to consider creating a dynamic route to render each sworn member.
+This data should not be fetched until the user clicks on the card. The sworn
+members should be held in the store, not in React state. Also, you shouldn't
+need to make extra fetch calls, so once you've fetched the sworn members for a
+house once, you shouldn't need to do that again.
