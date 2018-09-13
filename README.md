@@ -36,7 +36,7 @@ Nice work! You basically have a full website. This might be a good time to start
 
 If you've looked at the house objects coming in, you might have noticed the `swornMembers` array. This is an array of URL endpoints to hit. You'll need to make a `GET` request to `http://localhost:3001/api/v1/character/:id` to retrieve the desired sworn member (The `/character/:id` endpoint will grab that data for you and respond with the house sworn house member). You will also need to send the id of the sworn member in place of :id.
 
-This data should not be fetched until the user clicks on the card. The sworn
-members should be held in the store, not in React state. Also, you shouldn't
+This data should not be fetched until the user clicks on the card. You can
+implement this however you like.  Also, you shouldn't
 need to make extra fetch calls, so once you've fetched the sworn members for a
 house once, you shouldn't need to do that again.
