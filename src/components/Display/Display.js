@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import wolf from '../../assets/wolf.gif';
 
 import './Display.css';
 import Card from '../Card/Card';
@@ -12,14 +13,19 @@ class Display extends Component {
   }
 
   render() {
-    const cards = this.props.houses.map((house) => {
+    const { houses, isLoading } = this.props;
+    const cards = houses.map((house) => {
       return (
         <Card {...house} key={house.id} />
       )
-    })
+    });
+    const loading = (
+      <div id="wolf">{wolf}</div>
+    );
+
     return (
       <div className="Display-info">
-        {cards}
+        {isLoading ? loading : cards}
       </div>
     )
   }
