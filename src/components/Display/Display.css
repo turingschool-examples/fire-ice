@@ -4,4 +4,6 @@
   padding: 40px;
   font: white;
   border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -2,22 +2,27 @@ import React, { Component } from 'react';
 
 import './Card.css';
 
-class Card extends Component {
-  render() {
-    // 9 cards: name, founded, seats, titles, coatOfArms, ancestralWeapons, words
-    // may not have words
-    // all have different # of Titles
+const Card = (props) => {
+  const { name, coatOfArms, words, titles, seats, founded, ancestralWeapons } = props;
+    // all have different # of Titles and seats
     // may not have Founded
-    return (
-      <div>
-        <h1 className="Name"></h1>
-        <h3 className="Words"></h3>
-        <h4 className="Founded">Founded: </h4>
-        <p className="">Seats: </p>
-        <p className="">Titles: </p>
-        <p className="">Ancestral Weapons: </p>
-        <p className="">Coat of Arms: </p>
-      </div>
-    )
+  let checkedFounded;
+  if (founded === '') {
+    checkedFounded = 'N/A'
+  } else {
+    checkedFounded = founded
   }
+  return (
+    <div className="card">
+      <h1 >{name}</h1>
+      <h2 >{words}</h2>
+      <h4 >Founded: {checkedFounded}</h4>
+      <p >Seats: </p>
+      <p >Titles: </p>
+      <p >Ancestral Weapons: {ancestralWeapons}</p>
+      <p >Coat of Arms: {coatOfArms}</p>
+    </div>
+  )
 }
+
+export default Card;
