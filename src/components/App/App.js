@@ -3,14 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import { getDataThunk } from '../../thunks/getDataThunk'
 import { connect } from 'react-redux';
-import { getData } from '../../actions/index'
+import CardContainer from '../../containers/CardContainer'
 class App extends Component {
   constructor() {
     super()
   }
 
   async componentDidMount() {
-    console.log(this.props)
     this.props.getData()
 
   }
@@ -20,23 +19,23 @@ class App extends Component {
       <div className='App'>
         <div className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to Westeros!!</h2>
+          <h2>Welcome to Westeros</h2>
         </div>
         <div className='Display-info'>
+        <CardContainer />
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  data: state.data,
-  isLoading: state.isLoading,
+export const mapStateToProps = (state) => ({
+  data: state.data
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   getData: () => dispatch(getDataThunk())
-  // getDataAction: () => dispatch(getData())
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
