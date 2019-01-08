@@ -13,6 +13,13 @@ export class App extends Component {
   }
 
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div className='App'>
+          <img src="../src/assets/wolf.gif" alt="wolf loading gif"/>
+        </div>
+      )
+    }
     return (
       <div className='App'>
         <div className='App-header'>
@@ -28,7 +35,8 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  houses: state.houses
+  houses: state.houses,
+  isLoading: state.isLoading
 });
 
 export const mapDispatchToProps = (dispatch) => ({
