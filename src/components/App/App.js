@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import { getDataThunk } from '../../thunks/getDataThunk'
+import { connect } from 'react-redux';
+import { getData } from '../../actions/index'
 class App extends Component {
+  constructor() {
+    super()
+  }
+
+  async componentDidMount() {
+    console.log(this.props)
+    this.props.getData()
+
+  }
 
   render() {
     return (
@@ -18,4 +29,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  data: state.data,
+  isLoading: state.isLoading,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getData: () => dispatch(getDataThunk())
+  // getDataAction: () => dispatch(getData())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
