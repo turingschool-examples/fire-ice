@@ -8,7 +8,6 @@ export const fetchHouses = (url) => {
         throw Error(response.statusText);
       }
       const result = await response.json();
-      console.log(result);
       dispatch(addHouses(result))
     } catch(error) {
       dispatch(addError(error.message));
