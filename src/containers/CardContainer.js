@@ -1,7 +1,7 @@
-import React from 'react';
-import { Card } from '../components/Card/Card';
-import { connect } from 'react-redux';
-import { Loading } from '../components/Loading/Loading';
+import React from 'react'
+import { Card } from '../components/Card/Card'
+import { connect } from 'react-redux'
+import { Loading } from '../components/Loading/Loading'
 
 const CardContainer = () => {
   if (props.isLoading) {
