@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-export const Card= (props) => (
+export const Card = props => (
   <div className="house-card">
     <h1>{props.name}</h1>
     <p>{props.founded}</p>
@@ -9,6 +9,5 @@ export const Card= (props) => (
     <p>{props.coatOfArms}</p>
     <p>{props.ancestralWeapons}</p>
     <p>{props.words}</p>
-
   </div>
-)
+);

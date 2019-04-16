@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "enzyme-adapter-react-16": "^1.7.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "prop-types": "^15.6.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
@@ -13,8 +14,8 @@
     "redux-thunk": "^2.2.0"
   },
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "scripts": {
     "start": "react-scripts start",

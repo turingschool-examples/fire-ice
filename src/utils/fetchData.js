@@ -4,7 +4,7 @@ export const fetchData = async (url) => {
     const result = response.json();
     return result
     
-  }catch {
+  }catch(error) {
     console.log('error')
   }
 }

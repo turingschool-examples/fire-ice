@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addHouses } from "../../actions/index";
 import { Card } from "../Card/Card";
-import '../../assets/wolf.gif'
-
-
+import "../../assets/wolf.gif";
 
 export class CardContainer extends Component {
   constructor() {
@@ -15,22 +13,19 @@ export class CardContainer extends Component {
     const houseCards = this.props.houses.map((house, index) => (
       <Card key={index} {...house} />
     ));
-    if(this.props.houses.length === 0){
-      return(
-        <img src={require('../../assets/wolf.gif')} alt="loading..." />
-      )
-    }else{
-
-      return <div>{houseCards}</div>;
+    if (this.props.houses.length === 0) {
+      return <img src={require("../../assets/wolf.gif")} alt="loading..." />;
+    } else {
+      return <div className="card-container">{houseCards}</div>;
     }
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return { houses: state.houses };
 };
 
-const mapDispatchToProps = dispatch => {
+export const mapDispatchToProps = dispatch => {
   return {
     addHouses: data => {
       dispatch(addHouses(data));
