@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addHouses } from '../../actions/index'
+import {fetchData} from '../../utils/fetchData'
 import logo from './logo.svg';
 import './App.css';
+import CardContainer from '../CardContainer/CardContainer';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.fetchHouses()
+  }
+
+  fetchHouses = async () => {
+    const url = 'http://localhost:3001/api/v1/houses'
+    const response = await fetchData(url)
+    this.props.addHouses(response)
+
+  }
 
   render() {
     return (
@@ -11,6 +26,7 @@ class App extends Component {
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to Westeros</h2>
         </div>
+        <CardContainer/>
         <div className='Display-info'>
         </div>
       </div>
@@ -18,4 +34,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { houses: state.houses}
+}
+
+const mapDispatchToProps=(dispatch) => {
+  return {
+    addHouses: (data) => {
+      dispatch(addHouses(data))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
